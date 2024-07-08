@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profile_card</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --white: #fff;
+        --black: #080911;
+        --purple-gradient: linear-gradient(45deg, rgba(87, 29, 146, 1) 0%, rgba(172, 25, 102, 1) 100%);
+        --purple-gradient: linear-gradient(to bottom right, #c90a6d, #ff48a0);
+        --blue1-gradient: linear-gradient(to bottom right, #5e5aec, #3f9efc);
+        --blue2-gradient: linear-gradient(to bottom right, #6452e9, #639ff9);
+        --shadow: 0 13px 26px rgba(#000, 0.2), 0 3px 6px rgba(#000, 0.2);
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        position: relative;
+        background: #eeeeec;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Open Sans", sans-serif;
+        font-size: 100%;
+      }
+
+      .profile_card {
+        width: 320px;
+        height: 520px;
+        background: #fdfeff;
+        transition: background 0.6s ease;
+        padding: 20px 20px 20px 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 40px rgba(var(--black), 0.2);
+      }
+
+      .profile_card .top-icons i {
+        color: var(--black);
+      }
+
+      .profile_card .top-icons i:nth-of-type(1) {
+        float: left;
+        cursor: pointer;
+      }
+
+      .profile_card .top-icons i:nth-of-type(2) {
+        float: right;
+        cursor: pointer;
+      }
+
+      .profile_card .top-icons i:nth-of-type(3) {
+        float: right;
+        padding-right: 0.85em;
+        cursor: pointer;
+      }
+
+      .profile_card .profile {
+        margin-top: 2.2em;
+        position: relative;
+      }
+
+      .profile_card .profile::after {
+        width: 100%;
+        height: 1px;
+        content: " ";
+        display: block;
+        margin-top: 1.3em;
+        background: #e9eff6;
+      }
+
+      .profile_card .profile .check {
+        position: absolute;
+        right: 5.2em;
+        bottom: 13.8em;
+      }
+
+      .profile_card .profile .check i {
+        color: var(--white);
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 100%;
+        background: var(--blue1-gradient);
+      }
+
+      .profile_card .profile .thumbnail {
+        width: 124px;
+        height: 124px;
+        display: flex;
+        object-fit: cover;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.5em;
+        border-radius: 100%;
+        box-shadow: var(--shadow);
+      }
+
+      .profile_card .profile .info {
+        text-align: center;
+      }
+
+      .profile_card .profile .info .name {
+        color: #2d354a;
+        font-size: 24px;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+
+      .profile_card .profile .info .email {
+        color: var(--black);
+        font-size: 12.5px;
+        font-weight: 400;
+        text-transform: lowercase;
+      }
+
+      .profile_card .profile .info .title {
+        color: #7c8097;
+        font-size: 0.75em;
+        font-weight: 300;
+        padding-top: 0.5em;
+        padding-bottom: 0.7em;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      .profile_card .profile .description {
+        color: var(--black);
+        font-size: 14px;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 1.3em;
+      }
+
+      .profile_card .profile .btn {
+        color: var(--white);
+        width: 130px;
+        height: 42px;
+        outline: none;
+        border: none;
+        display: block;
+        cursor: pointer;
+        font-weight: 300;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 70px;
+        box-shadow: 0 13px 26px rgba(#000, 0.16), 0 3px 6px rgba(#000, 0.16);
+        background: var(--blue1-gradient);
+      }
+
+      .profile_card .social-icons {
+        display: flex;
+        margin-top: 1.2em;
+        justify-content: space-between;
+      }
+
+      .profile_card .social-icons .icon {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .profile_card .social-icons .icon a {
+        color: var(--white);
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 30px;
+        box-shadow: var(--shadow);
+      }
+
+      .profile_card .social-icons .icon:nth-of-type(1) {
+        a {
+          background: var(--blue2-gradient);
+        }
+      }
+
+      .profile_card .social-icons .icon:nth-of-type(2) {
+        a {
+          background: var(--purple-gradient);
+        }
+      }
+
+      .profile_card .social-icons .icon:nth-of-type(3) {
+        a {
+          background: var(--purple-gradient);
+        }
+      }
+
+      .profile_card .social-icons .icon:nth-of-type(4) {
+        a {
+          background: var(--purple-gradient);
+        }
+      }
+
+      .profile_card .social-icons .icon h4 {
+        color: var(--black);
+        font-size: 0.8em;
+        margin-top: 1.2em;
+        margin-bottom: 0.2em;
+      }
+
+      .profile_card .social-icons .icon p {
+        color: #666b7d;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile_card">
+      <div class="top-icons">
+        <i class="fas fa-long-arrow-alt-left"></i>
+        <i class="fas fa-ellipsis-v"></i>
+        <i class="far fa-heart"></i>
+      </div>
+
+      <div class="profile">
+        <img
+          src="https://images.pexels.com/photos/2379003/pexels-photo-2379003.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          class="thumbnail"
+        />
+        <div class="check"><i class="fas fa-check"></i></div>
+        <div class="info">
+          <h3 class="name">will smith</h3>
+          <span class="email">info.smith@gmail.com</span>
+          <p class="title">web app developer</p>
+        </div>
+        <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt temporibus delectus!</p>
+        <button type="button" class="btn">Hire Me</button>
+      </div>
+
+      <div class="social-icons">
+        <div class="icon">
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <h4>7.5k</h4>
+          <p>Followers</p>
+        </div>
+
+        <div class="icon">
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          <h4>8.8k</h4>
+          <p>Followers</p>
+        </div>
+
+        <div class="icon">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <h4>10.2k</h4>
+          <p>Followers</p>
+        </div>
+
+        <div class="icon">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <h4>12.8k</h4>
+          <p>Followers</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
